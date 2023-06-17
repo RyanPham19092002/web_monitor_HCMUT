@@ -1,0 +1,24 @@
+{% extends 'web/base.html' %} 
+{% block title %}
+    <title>Change Name List</title>
+{% endblock %}
+{% block content %}
+    <div style="font-size: 20px; color: red;">
+        <h1>HomePage Template</h1>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <ol>
+            {% for list in lst.all %}               
+                    <button type = "submit" name = "choose URL" value = "{{list.id}}">{{list.name}}</button>
+                    <br></br>
+            {% endfor %}
+        </ol>
+        <!-- <input type ="text" name = "name new list" >
+        <button type = "submit" name = "new list" value = "new list">Add new list</button>
+        <br></br> -->
+        <button type="submit" name="save" value="save">Save</button>
+        <br></br>
+        <button type="submit" name="exit" value="exit">Exit</button>
+    </form>
+{% endblock %}
